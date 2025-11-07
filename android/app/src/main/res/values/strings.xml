@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NasaYuwe</string>
+    <string name="title_activity_main">NasaYuwe</string>
+    <string name="package_name">com.nasayuwe.app</string>
+    <string name="custom_url_scheme">com.nasayuwe.app</string>
+</resources>
