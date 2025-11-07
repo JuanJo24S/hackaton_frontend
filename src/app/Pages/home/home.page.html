@@ -1,180 +1,170 @@
-<main class="bg-background overflow-auto pt-8 scroll-smooth">
+<main class="bg-background overflow-auto max-h-[100vh] pt-4 scroll-smooth">
 
-  <!-- Contenedor principal -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Hero -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center bg-secondary rounded-2xl shadow-soft animate-fade-in-up">
+    <div class="mb-6 flex justify-center flex-wrap gap-2">
+      <span class="badge badge-primary">Identidad Huila</span>
+      <span class="badge badge-accent">Cultura Nasa</span>
+      <span class="badge badge-primary">Innovación y confianza</span>
+    </div>
+    <h1 class="heading-xl mb-3 text-card-foreground">NasaYuwe</h1>
+    <p class="text-muted-foreground mb-8 text-lg md:text-xl">Historia y gente</p>
+    <div class="flex justify-center flex-wrap gap-4 mb-12">
+      <a href="#" class="btn btn-primary btn-lg">Explora productos</a>
+      <a href="#" class="btn btn-outline btn-lg">Descubre historias</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <img src="assets/landing-resources/resource1.png" alt="Artesana tejiendo" class="card-product">
+      <img src="assets/landing-resources/resource2.png" alt="Artesano" class="card-product">
+      <img src="assets/landing-resources/resource3.png" alt="Alfarería" class="card-product">
+    </div>
+  </section>
 
-    <!-- Buscador y filtros -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12 animate-fade-in-up">
-
-      <!-- Filtros -->
-      <div class="lg:col-span-2 bg-card p-6 rounded-2xl shadow-soft border border-border">
-        <h2 class="heading-md mb-4 text-foreground">Explora lo mejor del Huila</h2>
-
-        <div class="flex flex-col gap-4">
-          <!-- Campo de búsqueda -->
-          <input
-            type="text"
-            placeholder="Buscar por nombre de producto o artesano"
-            class="p-3 rounded-lg bg-input border border-border focus-ring text-foreground"
-          />
-
-          <!-- Categorías y región -->
-          <div class="flex flex-col sm:flex-row gap-4">
-            <select class="p-3 rounded-lg bg-input border border-border text-foreground flex-1 focus-ring">
-              <option value="">Categoría: Todas</option>
-              <option>Tejidos</option>
-              <option>Cerámica</option>
-              <option>Guadua</option>
-              <option>Café</option>
-              <option>Joyería</option>
-            </select>
-
-            <select class="p-3 rounded-lg bg-input border border-border text-foreground flex-1 focus-ring">
-              <option value="">Región: Todo Huila</option>
-              <option>Pitalito</option>
-              <option>Neiva</option>
-              <option>San Agustín</option>
-              <option>Garzón</option>
-              <option>La Plata</option>
-            </select>
-          </div>
-
-          <!-- Botones -->
-          <div class="flex flex-wrap gap-3">
-            <button class="btn btn-primary">Buscar</button>
-            <button class="btn btn-outline">Limpiar filtros</button>
-          </div>
-
-          <!-- Etiquetas -->
-          <div class="flex flex-wrap gap-2 mt-2">
-            <span class="badge badge-primary">Tejidos</span>
-            <span class="badge badge-accent">Cerámica</span>
-            <span class="badge badge-primary">Guadua</span>
-            <span class="badge badge-primary">Café</span>
-            <span class="badge badge-accent">Sombreros</span>
-            <span class="badge badge-primary">Joyería</span>
-          </div>
-
-          <p class="text-sm text-muted-foreground mt-2">
-            Consejo: usa la búsqueda para encontrar por nombre de artesano o producto.
-          </p>
-        </div>
+  <!-- ¿Qué es NasaYuwe? -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-secondary rounded-2xl my-12 shadow-soft animate-fade-in-up">
+    <h2 class="heading-lg mb-4 section-title">¿Qué es NasaYuwe?</h2>
+    <p class="text-muted-foreground mb-10 text-lg">Más que un e-commerce: conecta con la historia de cada producto, descubre a sus artesanos y compra autenticidad desde el Huila al mundo.</p>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="card-feature animate-scale-in stagger-1">
+        <h3>Storytelling + cultura</h3>
+        <p>Cada pieza viene con su relato, técnicas y raíces Nasa.</p>
       </div>
-
-      <!-- Banner lateral -->
-      <div class="bg-secondary p-6 rounded-2xl shadow-soft flex flex-col justify-between animate-scale-in">
-        <div>
-          <img
-            src="assets/landing-resources/resource3.png"
-            alt="Artesanías del Huila"
-            class="rounded-xl mb-4 w-full h-44 object-cover"
-          />
-          <h3 class="heading-md mb-2 text-secondary-foreground">Hecho a mano con alma huilense</h3>
-          <p class="text-muted-foreground mb-4">
-            Compra directo a artesanos locales y conoce la historia detrás de cada pieza.
-          </p>
-        </div>
-        <a href="#" class="btn btn-primary w-full">Ver colecciones</a>
+      <div class="card-feature animate-scale-in stagger-2">
+        <h3>Perfil del artesano + QR</h3>
+        <p>Escanea y conoce al creador, su territorio y procesos.</p>
+      </div>
+      <div class="card-feature animate-scale-in stagger-3">
+        <h3>Certificado digital</h3>
+        <p>Autenticidad verificada con sello blockchain.</p>
+      </div>
+      <div class="card-feature animate-scale-in stagger-4">
+        <h3>Compras seguras y directas</h3>
+        <p>Apoya economías locales con pagos protegidos.</p>
       </div>
     </div>
-
-    <!-- Productos destacados -->
-    <section class="animate-fade-in-up">
-      <h2 class="heading-lg mb-8 section-title">Destacados de la semana</h2>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/product1.png" alt="Canasto de iraca">
-          <h3>Canasto de iraca</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Luz M, Pitalito</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$85.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/product2.png" alt="Taza de cerámica">
-          <h3>Mug de Cerámica</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Taller La Jagua, Neiva</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$48.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/product3.png" alt="Sombrero Tejido">
-          <h3>Sombrero Tejido</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Don Elías, San Agustín</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$120.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource1.png" alt="Collar de Cuentas">
-          <h3>Collar de Cuentas</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Ana P., Garzón</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$65.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource2.png" alt="Banquito de Guadua">
-          <h3>Banquito de Guadua</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Colectivo Río, Campoalegre</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$98.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/product4.png" alt="Café de Altura">
-          <h3>Café de Altura</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Finca El Encanto, Acevedo</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$34.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource1.png" alt="Camino de Mesa">
-          <h3>Camino de Mesa</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Tejedoras del Magdalena</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$72.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource2.png" alt="Cucharas Talladas">
-          <h3>Cucharas Talladas</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Ebanista R., La Plata</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$28.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource3.png" alt="Jarrón Terracota">
-          <h3>Jarrón Terracota</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Casa Cerámica, Tarqui</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$110.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
   </section>
+
+  <!-- Productos destacados -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 animate-fade-in-up">
+    <h2 class="heading-lg mb-8 section-title">Productos destacados</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="card card-product hover-lift">
+        <img src="assets/landing-resources/product1.png" alt="Canasto de iraca">
+        <h3>Canasto de iraca</h3>
+        <div class="flex justify-between items-center">
+          <p class="price">$85.000</p>
+          <a href="#" class="text-primary hover:underline text-sm">Ver historia</a>
+        </div>
+      </div>
+      <div class="card card-product hover-lift">
+        <img src="assets/landing-resources/product2.png" alt="Taza de cerámica">
+        <h3>Taza de cerámica</h3>
+        <div class="flex justify-between items-center">
+          <p class="price">$45.000</p>
+          <a href="#" class="text-primary hover:underline text-sm">Ver historia</a>
+        </div>
+      </div>
+      <div class="card card-product hover-lift">
+        <img src="assets/landing-resources/product3.png" alt="Mochila tejida">
+        <h3>Mochila tejida</h3>
+        <div class="flex justify-between items-center">
+          <p class="price">$120.000</p>
+          <a href="#" class="text-primary hover:underline text-sm">Ver historia</a>
+        </div>
+      </div>
+      <div class="card card-product hover-lift">
+        <img src="assets/landing-resources/product4.png" alt="Café de origen">
+        <h3>Café de origen</h3>
+        <div class="flex justify-between items-center">
+          <p class="price">$38.000</p>
+          <a href="#" class="text-primary hover:underline text-sm">Ver historia</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-background rounded-2xl my-12 shadow-soft animate-fade-in-up">
+    <h2 class="heading-lg mb-6 section-title">¿Cómo funciona?</h2>
+    <p class="text-muted-foreground mb-10 text-lg">Un flujo simple para descubrir, confiar y comprar con propósito.</p>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="card-feature hover-lift animate-scale-in stagger-1 text-center">
+        <span class="inline-block mb-2 px-4 py-2 bg-primary text-white rounded-full font-bold text-lg">1</span>
+        <h3>Explora productos</h3>
+        <p>Encuentra artesanías auténticas del Huila.</p>
+      </div>
+      <div class="card-feature hover-lift animate-scale-in stagger-2 text-center">
+        <span class="inline-block mb-2 px-4 py-2 bg-primary text-white rounded-full font-bold text-lg">2</span>
+        <h3>Lee la historia</h3>
+        <p>Conoce al artesano, técnicas y territorio.</p>
+      </div>
+      <div class="card-feature hover-lift animate-scale-in stagger-3 text-center">
+        <span class="inline-block mb-2 px-4 py-2 bg-primary text-white rounded-full font-bold text-lg">3</span>
+        <h3>Escanea QR o compra directo</h3>
+        <p>Verifica el perfil y realiza tu compra segura.</p>
+      </div>
+      <div class="card-feature hover-lift animate-scale-in stagger-4 text-center">
+        <span class="inline-block mb-2 px-4 py-2 bg-primary text-white rounded-full font-bold text-lg">4</span>
+        <h3>Recibe autenticidad</h3>
+        <p>Certificado digital y valor cultural garantizado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 animate-fade-in-up">
+    <h2 class="heading-lg mb-8 section-title">Testimonios</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card card-feature hover-lift">
+        <p class="text-muted-foreground mb-4">"Sentí la historia en mis manos. Comprar aquí es apoyar directamente a quien crea."</p>
+        <span class="font-semibold text-card-foreground">María G. · Compradora</span>
+      </div>
+      <div class="card card-feature hover-lift">
+        <p class="text-muted-foreground mb-4">"Con el QR, mis clientes conocen mi proceso y confían más en mi trabajo."</p>
+        <span class="font-semibold text-card-foreground">Jorge A. · Artesano</span>
+      </div>
+      <div class="card card-feature hover-lift">
+        <p class="text-muted-foreground mb-4">"Descubrí Pitalito a través de sus artesanías. Hermosa curaduría y entrega rápida."</p>
+        <span class="font-semibold text-card-foreground">Luisa P. · Viajera</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-card text-card-foreground py-12 mt-12 shadow-soft animate-fade-in-up">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div>
+        <h3 class="font-bold mb-2 text-card-foreground">NasaYuwe</h3>
+        <p class="text-muted-foreground text-sm">Identidad cultural del Huila, historias vivas y compras con propósito.</p>
+        <div class="flex space-x-3 mt-3">
+          <a href="#" class="text-primary hover:underline text-sm">Instagram</a>
+          <a href="#" class="text-primary hover:underline text-sm">Facebook</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2 text-card-foreground">Artesanos</h3>
+        <ul class="text-muted-foreground text-sm space-y-1">
+          <li><a href="#" class="hover:underline">Quiero unirme</a></li>
+          <li><a href="#" class="hover:underline">Requisitos</a></li>
+          <li><a href="#" class="hover:underline">Soporte</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2 text-card-foreground">Legal</h3>
+        <ul class="text-muted-foreground text-sm space-y-1">
+          <li><a href="#" class="hover:underline">Términos</a></li>
+          <li><a href="#" class="hover:underline">Privacidad</a></li>
+          <li><a href="#" class="hover:underline">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2 text-card-foreground">Sé parte</h3>
+        <form class="flex flex-col sm:flex-row gap-2">
+          <input type="email" placeholder="Tu correo electrónico" class="p-3 rounded-lg text-card-foreground flex-1 bg-background focus-ring">
+          <button type="submit" class="btn btn-primary btn-lg">Unirme a la comunidad</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
 </main>
