@@ -1,152 +1,134 @@
-<main class="bg-background overflow-auto pt-8 scroll-smooth">
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-    <!-- Perfil principal -->
-    <div class="bg-card rounded-2xl shadow-soft p-6 flex flex-col lg:flex-row justify-between gap-6 animate-fade-in-up">
-      <div class="flex flex-col md:flex-row gap-6">
-        <!-- Foto -->
-        <img
-          src="assets/landing-resources/resource3.png"
-          alt="Luz M. – Artesana"
-          class="rounded-xl object-cover w-full md:w-64 h-48 md:h-auto"
-        />
+<main class="bg-gray-50 overflow-auto pt-10 scroll-smooth">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
-        <!-- Información -->
+    <!-- PERFIL PRINCIPAL -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 flex flex-col lg:flex-row justify-between gap-8">
+      <!-- Perfil -->
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- Foto -->
+        <img src="assets/landing-resources/resource3.png" alt="Luz M. – Artesana"
+          class="rounded-xl object-cover w-full md:w-64 h-56 md:h-auto shadow-md" />
+
+        <!-- Info -->
         <div class="flex-1">
-          <h1 class="heading-lg mb-1 text-foreground">Luz M. – Tejedora de Pitalito</h1>
-          <p class="text-muted-foreground text-sm mb-4">Pitalito, Huila</p>
+          <h1 class="text-2xl font-bold text-gray-900 mb-1">Luz M. – Tejedora de Pitalito</h1>
+          <p class="text-gray-500 text-sm mb-4">Pitalito, Huila</p>
 
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="badge badge-primary">Técnica: Iraca</span>
-            <span class="badge badge-accent">18 años de oficio</span>
+            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Técnica: Iraca</span>
+            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">18 años de
+              oficio</span>
           </div>
 
-          <p class="text-muted-foreground mb-4">
-            Desde niña, Luz aprendió a preparar la iraca y a tejer junto a su madre. Su obra rescata trenzas tradicionales y tintes naturales, dando vida a piezas cálidas y duraderas que celebran la identidad huilense.
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            Desde niña, Luz aprendió a preparar la iraca y a tejer junto a su madre. Su obra rescata trenzas
+            tradicionales y tintes naturales, dando vida a piezas cálidas y duraderas que celebran la identidad
+            huilense.
           </p>
 
           <div class="flex flex-wrap gap-2">
-            <span class="badge badge-primary">Tejidos</span>
-            <span class="badge badge-accent">Cestería</span>
-            <span class="badge badge-primary">Colores naturales</span>
+            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Tejidos</span>
+            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Cestería</span>
+            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Colores naturales</span>
           </div>
         </div>
       </div>
 
       <!-- Certificado -->
-      <div class="bg-muted rounded-2xl p-6 w-full lg:w-80 flex flex-col items-start justify-between">
+      <div class="bg-gray-100 rounded-2xl p-6 w-full lg:w-80 flex flex-col justify-between">
         <div>
-          <h3 class="heading-sm mb-2">Certificado de Autenticidad</h3>
-          <p class="text-sm text-muted-foreground mb-4">QR del artesano</p>
-          <p class="text-sm text-muted-foreground mb-4">
+          <h3 class="text-lg font-semibold mb-2">Certificado de Autenticidad</h3>
+          <p class="text-sm text-gray-500 mb-4">QR del artesano</p>
+          <p class="text-sm text-gray-600 mb-6">
             Escanéalo para verificar taller, técnica y procedencia.
           </p>
         </div>
-        <button class="btn btn-primary w-full">Verificar ahora</button>
+        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition-all">
+          Verificar ahora
+        </button>
       </div>
     </div>
 
-    <!-- Historia del taller -->
-    <section class="animate-fade-in-up">
-      <h2 class="heading-md mb-4 text-foreground">Historia del taller</h2>
-
-      <div class="bg-card rounded-2xl shadow-soft p-6 flex flex-col lg:flex-row gap-6">
-        <div class="flex-1 flex flex-col gap-3">
-          <img
-            src="assets/landing-resources/resource2.png"
-            alt="Taller artesanal"
-            class="rounded-xl object-cover w-full"
-          />
-          <p class="text-muted-foreground">
-            El taller de Luz nació en el patio de su casa, entre cafetales y conversaciones familiares. Allí preparan la iraca con técnicas transmitidas por generaciones, respetando los tiempos de la fibra y del territorio.
+    <!-- HISTORIA DEL TALLER -->
+    <section>
+      <h2 class="text-xl font-bold mb-4 text-gray-900">Historia del taller</h2>
+      <div class="bg-white rounded-2xl shadow-lg p-8 flex flex-col lg:flex-row gap-8">
+        <div class="flex-1 space-y-4">
+          <img src="assets/landing-resources/resource2.png" alt="Taller artesanal"
+            class="rounded-xl object-cover w-full shadow-md" />
+          <p class="text-gray-600 leading-relaxed">
+            El taller de Luz nació en el patio de su casa, entre cafetales y conversaciones familiares. Allí preparan la
+            iraca con técnicas transmitidas por generaciones, respetando los tiempos de la fibra y del territorio.
             Cada pieza se teje en jornadas compartidas, celebrando la memoria de Pitalito y el valor de lo hecho a mano.
           </p>
         </div>
 
-        <div class="flex-1 flex flex-col justify-between gap-3">
-          <img
-            src="assets/landing-resources/mapa.png"
-            alt="Mapa de ubicación"
-            class="rounded-xl object-cover w-full h-56"
-          />
+        <div class="flex-1 flex flex-col justify-between gap-4">
+          <img src="assets/landing-resources/mapa.png" alt="Mapa de ubicación"
+            class="rounded-xl object-cover w-full h-56 shadow-md" />
           <div class="flex flex-wrap gap-2">
-            <span class="badge badge-accent">Región: Pitalito</span>
-            <span class="badge badge-primary">Materia prima local</span>
-            <span class="badge badge-accent">Producción responsable</span>
+            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Región: Pitalito</span>
+            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Materia prima
+              local</span>
+            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Producción
+              responsable</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Productos -->
-    <section class="animate-fade-in-up">
-      <h2 class="heading-md mb-4 text-foreground">Productos de Luz</h2>
+    <!-- PRODUCTOS -->
+    <section>
+      <h2 class="text-xl font-bold mb-4 text-gray-900">Productos de Luz</h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         <!-- Producto -->
-        <div class="card text-center">
-          <img src="assets/landing-resources/product1.png" alt="Canasto" class="rounded-xl mb-3" />
-          <h3 class="font-semibold text-foreground">Canasto de Iraca – Mediano</h3>
-          <p class="text-sm text-muted-foreground mb-2">En stock</p>
+        <div class="bg-white rounded-2xl shadow-lg p-4 text-center hover:shadow-xl transition">
+          <div class="flex justify-center">
+            <img src="assets/landing-resources/product1.png" alt="Canasto"
+              class="rounded-xl mb-3 object-cover max-h-48 w-full sm:w-64" />
+          </div>
+          <h3 class="font-semibold text-gray-900">Canasto de Iraca – Mediano</h3>
+          <p class="text-sm text-gray-500 mb-2">En stock</p>
           <p class="font-semibold mb-3">$85.000</p>
-          <button class="btn btn-primary w-full">Añadir</button>
+          <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg">Añadir</button>
         </div>
 
-        <div class="card text-center">
-          <img src="assets/landing-resources/product2.png" alt="Bandeja Trenzada" class="rounded-xl mb-3" />
-          <h3 class="font-semibold text-foreground">Bandeja Trenzada</h3>
-          <p class="text-sm text-muted-foreground mb-2">Limitado</p>
+        <div class="bg-white rounded-2xl shadow-lg p-4 text-center hover:shadow-xl transition">
+          <div class="flex justify-center">
+            <img src="assets/landing-resources/product2.png" alt="Bandeja Trenzada"
+              class="rounded-xl mb-3 object-cover max-h-48 w-full sm:w-64" />
+          </div>
+          <h3 class="font-semibold text-gray-900">Bandeja Trenzada</h3>
+          <p class="text-sm text-gray-500 mb-2">Limitado</p>
           <p class="font-semibold mb-3">$72.000</p>
-          <button class="btn btn-primary w-full">Añadir</button>
+          <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg">Añadir</button>
         </div>
 
-        <div class="card text-center">
-          <img src="assets/landing-resources/product3.png" alt="Individuales" class="rounded-xl mb-3" />
-          <h3 class="font-semibold text-foreground">Individuales (set x2)</h3>
-          <p class="text-sm text-muted-foreground mb-2">Nuevo</p>
+        <div class="bg-white rounded-2xl shadow-lg p-4 text-center hover:shadow-xl transition">
+          <div class="flex justify-center">
+            <img src="assets/landing-resources/product3.png" alt="Individuales"
+              class="rounded-xl mb-3 object-cover max-h-48 w-full sm:w-64" />
+          </div>
+          <h3 class="font-semibold text-gray-900">Individuales (set x2)</h3>
+          <p class="text-sm text-gray-500 mb-2">Nuevo</p>
           <p class="font-semibold mb-3">$58.000</p>
-          <button class="btn btn-primary w-full">Añadir</button>
+          <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg">Añadir</button>
         </div>
 
-        <div class="card text-center">
-          <img src="assets/landing-resources/resource1.png" alt="Canasto con tapa" class="rounded-xl mb-3" />
-          <h3 class="font-semibold text-foreground">Canasto con tapa</h3>
-          <p class="text-sm text-muted-foreground mb-2">En pedido</p>
+        <div class="bg-white rounded-2xl shadow-lg p-4 text-center hover:shadow-xl transition">
+          <div class="flex justify-center">
+            <img src="assets/landing-resources/resource1.png" alt="Canasto con tapa"
+              class="rounded-xl mb-3 object-cover max-h-48 w-full sm:w-64" />
+          </div>
+          <h3 class="font-semibold text-gray-900">Canasto con tapa</h3>
+          <p class="text-sm text-gray-500 mb-2">En pedido</p>
           <p class="font-semibold mb-3">$96.000</p>
-          <button class="btn btn-primary w-full">Añadir</button>
-        </div>
-
-        <div class="card text-center">
-          <img src="assets/landing-resources/resource2.png" alt="Frutera Iraca" class="rounded-xl mb-3" />
-          <h3 class="font-semibold text-foreground">Frutera Iraca</h3>
-          <p class="text-sm text-muted-foreground mb-2">En stock</p>
-          <p class="font-semibold mb-3">$64.000</p>
-          <button class="btn btn-primary w-full">Añadir</button>
-        </div>
-
-        <div class="card text-center">
-          <img src="assets/landing-resources/resource3.png" alt="Portavasos" class="rounded-xl mb-3" />
-          <h3 class="font-semibold text-foreground">Portavasos (set x4)</h3>
-          <p class="text-sm text-muted-foreground mb-2">En stock</p>
-          <p class="font-semibold mb-3">$34.000</p>
-          <button class="btn btn-primary w-full">Añadir</button>
-        </div>
-
-        <div class="card text-center">
-          <img src="assets/landing-resources/product4.png" alt="Organizador" class="rounded-xl mb-3" />
-          <h3 class="font-semibold text-foreground">Organizador pequeño</h3>
-          <p class="text-sm text-muted-foreground mb-2">En stock</p>
-          <p class="font-semibold mb-3">$42.000</p>
-          <button class="btn btn-primary w-full">Añadir</button>
-        </div>
-
-        <div class="card text-center">
-          <img src="assets/landing-resources/product5.png" alt="Sombrero Iraca" class="rounded-xl mb-3" />
-          <h3 class="font-semibold text-foreground">Sombrero Iraca</h3>
-          <p class="text-sm text-muted-foreground mb-2">Limitado</p>
-          <p class="font-semibold mb-3">$120.000</p>
-          <button class="btn btn-primary w-full">Añadir</button>
+          <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg">Añadir</button>
         </div>
       </div>
     </section>
+
+
   </section>
 </main>
