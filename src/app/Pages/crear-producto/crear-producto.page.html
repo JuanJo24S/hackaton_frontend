@@ -1,0 +1,244 @@
+<app-nav></app-nav>
+
+<main class="bg-background min-h-screen py-8 pb-12">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="heading-lg text-foreground">Agregar Nuevo Producto</h1>
+      <p class="text-muted-foreground mt-2">Completa la información de tu producto artesanal</p>
+    </div>
+
+    <form (ngSubmit)="crearProducto()" class="space-y-6">
+
+      <!-- Información básica -->
+      <div class="bg-card p-6 rounded-2xl shadow-soft border border-border">
+        <h2 class="heading-md mb-4 text-foreground">Información Básica</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Nombre -->
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-muted-foreground mb-1">
+              Nombre del producto *
+            </label>
+            <input
+              type="text"
+              [(ngModel)]="producto.nombre"
+              name="nombre"
+              required
+              placeholder="Ej: Cerámica artesanal"
+              class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+            />
+          </div>
+
+          <!-- Descripción -->
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-muted-foreground mb-1">
+              Descripción *
+            </label>
+            <textarea
+              [(ngModel)]="producto.descripcion"
+              name="descripcion"
+              required
+              rows="4"
+              placeholder="Describe tu producto..."
+              class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+            ></textarea>
+          </div>
+
+          <!-- Precio -->
+          <div>
+            <label class="block text-sm font-medium text-muted-foreground mb-1">
+              Precio (COP) *
+            </label>
+            <input
+              type="number"
+              [(ngModel)]="producto.precio"
+              name="precio"
+              required
+              min="0"
+              step="0.01"
+              placeholder="0.00"
+              class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+            />
+          </div>
+
+          <!-- Stock -->
+          <div>
+            <label class="block text-sm font-medium text-muted-foreground mb-1">
+              Stock disponible *
+            </label>
+            <input
+              type="number"
+              [(ngModel)]="producto.stock"
+              name="stock"
+              required
+              min="0"
+              placeholder="0"
+              class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+            />
+          </div>
+
+          <!-- Categoría -->
+          <div>
+            <label class="block text-sm font-medium text-muted-foreground mb-1">
+              Categoría *
+            </label>
+            <select
+              [(ngModel)]="producto.categoria"
+              name="categoria"
+              required
+              class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+            >
+              <option value="">Selecciona una categoría</option>
+              <option value="Tejidos">Tejidos</option>
+              <option value="Cerámica">Cerámica</option>
+              <option value="Guadua">Guadua</option>
+              <option value="Café">Café</option>
+              <option value="Joyería">Joyería</option>
+              <option value="Ropa deportiva">Ropa deportiva</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+
+          <!-- Video del proceso -->
+          <div>
+            <label class="block text-sm font-medium text-muted-foreground mb-1">
+              Video del proceso (URL)
+            </label>
+            <input
+              type="url"
+              [(ngModel)]="producto.video_proceso"
+              name="video_proceso"
+              placeholder="https://youtube.com/..."
+              class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Imágenes -->
+      <div class="bg-card p-6 rounded-2xl shadow-soft border border-border">
+        <h2 class="heading-md mb-4 text-foreground">Imágenes del Producto</h2>
+        <p class="text-sm text-muted-foreground mb-4">Máximo 10 imágenes</p>
+
+        <!-- Input de archivos -->
+        <div class="mb-4">
+          <label class="btn btn-outline cursor-pointer inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            Seleccionar imágenes
+            <input
+              type="file"
+              (change)="onImagenesSeleccionadas($event)"
+              accept="image/*"
+              multiple
+              class="hidden"
+            />
+          </label>
+        </div>
+
+        <!-- Previsualización -->
+        <div *ngIf="imagenesPrevisualizacion.length > 0" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div *ngFor="let preview of imagenesPrevisualizacion; let i = index" class="relative group">
+            <img [src]="preview" class="w-full h-32 object-cover rounded-xl border border-border" />
+            <button
+              type="button"
+              (click)="eliminarImagen(i)"
+              class="absolute top-2 right-2 w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Historia (Opcional) -->
+      <div class="bg-card p-6 rounded-2xl shadow-soft border border-border">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="heading-md text-foreground">Historia del Producto</h2>
+            <p class="text-sm text-muted-foreground">Opcional - Comparte la historia detrás de tu creación</p>
+          </div>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              [(ngModel)]="agregarHistoria"
+              name="agregarHistoria"
+              class="w-5 h-5 text-primary rounded focus:ring-2 focus:ring-primary/40"
+            />
+            <span class="text-sm font-medium">Agregar historia</span>
+          </label>
+        </div>
+
+        <div *ngIf="agregarHistoria" class="space-y-4">
+          <!-- Descripción de la historia -->
+          <div>
+            <label class="block text-sm font-medium text-muted-foreground mb-1">
+              Cuéntanos la historia
+            </label>
+            <textarea
+              [(ngModel)]="historia.descripcion"
+              name="historiaDescripcion"
+              rows="5"
+              placeholder="Esta pieza fue elaborada por artesanos de la región andina usando técnicas ancestrales transmitidas de generación en generación..."
+              class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+            ></textarea>
+          </div>
+
+          <!-- Tags -->
+          <div>
+            <label class="block text-sm font-medium text-muted-foreground mb-2">
+              Tags (separados por comas)
+            </label>
+            <input
+              type="text"
+              [(ngModel)]="historia.tags"
+              name="historiaTags"
+              placeholder="Hecho a mano, Técnica ancestral, Producto único"
+              class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition mb-2"
+            />
+
+            <!-- Tags sugeridos -->
+            <div class="flex flex-wrap gap-2">
+              <button
+                *ngFor="let tag of tagsSugeridos"
+                type="button"
+                (click)="agregarTag(tag)"
+                class="badge badge-primary cursor-pointer hover:bg-primary/20 transition"
+              >
+                + {{ tag }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="flex gap-4 justify-end">
+        <button
+          type="button"
+          (click)="router.navigate(['/home'])"
+          class="btn btn-outline"
+          [disabled]="cargando"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="cargando"
+        >
+          <span *ngIf="!cargando">Crear Producto</span>
+          <span *ngIf="cargando" class="flex items-center gap-2">
+            <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            Creando...
+          </span>
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</main>

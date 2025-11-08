@@ -10,12 +10,15 @@
 
       <!-- Navegación principal -->
       <nav class="hidden md:flex items-center space-x-6">
-        <a href="#" class="hover:text-primary font-medium transition-colors">Productos</a>
+        <a routerLink="/home" class="hover:text-primary font-medium transition-colors">Productos</a>
         <a href="#" class="hover:text-primary font-medium transition-colors">Historias</a>
         <a href="#" class="hover:text-primary font-medium transition-colors">Artesanos</a>
+        <a *ngIf="usuario?.roles === 'ARTESANO'" routerLink="/crear-producto" class="btn btn-primary btn-sm">
+          + Agregar Producto
+        </a>
       </nav>
 
-      <!-- Buscador + CTA -->
+      <!-- Buscador + Usuario -->
       <div class="hidden md:flex items-center gap-4">
         <!-- Buscador -->
         <div class="relative">
@@ -35,13 +38,44 @@
           </svg>
         </div>
 
-        <!-- Botón -->
-        <a
-          href="#"
-          class="btn btn-primary whitespace-nowrap"
-        >
-          Descargar aplicación
-        </a>
+        <!-- Menú de usuario -->
+        <div class="relative" *ngIf="usuario">
+          <button
+            (click)="toggleMenuUsuario()"
+            class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-muted transition-colors"
+          >
+            <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-semibold">
+              {{ usuario.nombre.charAt(0).toUpperCase() }}
+            </div>
+            <span class="font-medium">{{ usuario.nombre }}</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Dropdown -->
+          <div
+            *ngIf="menuUsuarioAbierto"
+            class="absolute right-0 mt-2 w-56 bg-card border border-border rounded-xl shadow-lg overflow-hidden z-50"
+          >
+            <div class="p-3 border-b border-border">
+              <p class="font-semibold text-sm">{{ usuario.nombre }}</p>
+              <p class="text-xs text-muted-foreground">{{ usuario.correo }}</p>
+              <span class="inline-block mt-1 px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full">
+                {{ usuario.roles }}
+              </span>
+            </div>
+            <button
+              (click)="cerrarSesion()"
+              class="w-full px-3 py-2 text-left text-sm hover:bg-muted transition-colors flex items-center gap-2 text-red-600"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Botón móvil -->
@@ -79,9 +113,12 @@
       class="md:hidden bg-card border-t border-border rounded-b-2xl shadow-soft animate-fade-in-down"
     >
       <nav class="flex flex-col space-y-3 p-4">
-        <a href="#" class="hover:text-primary font-medium">Productos</a>
+        <a routerLink="/home" class="hover:text-primary font-medium">Productos</a>
         <a href="#" class="hover:text-primary font-medium">Historias</a>
         <a href="#" class="hover:text-primary font-medium">Artesanos</a>
+        <a *ngIf="usuario?.roles === 'ARTESANO'" routerLink="/crear-producto" class="btn btn-primary w-full">
+          + Agregar Producto
+        </a>
 
         <div class="border-t border-border pt-3 mt-3 flex flex-col gap-3">
           <div class="relative">
@@ -100,7 +137,31 @@
                 d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
             </svg>
           </div>
-          <a href="#" class="btn btn-primary w-full">Descargar aplicación</a>
+
+          <!-- Info de usuario móvil -->
+          <div *ngIf="usuario" class="bg-muted p-3 rounded-xl">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-semibold">
+                {{ usuario.nombre.charAt(0).toUpperCase() }}
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-sm">{{ usuario.nombre }}</p>
+                <p class="text-xs text-muted-foreground">{{ usuario.correo }}</p>
+              </div>
+            </div>
+            <span class="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full mb-2">
+              {{ usuario.roles }}
+            </span>
+            <button
+              (click)="cerrarSesion()"
+              class="w-full btn btn-outline text-red-600 border-red-600 hover:bg-red-50 flex items-center justify-center gap-2"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              Cerrar sesión
+            </button>
+          </div>
         </div>
       </nav>
     </div>
