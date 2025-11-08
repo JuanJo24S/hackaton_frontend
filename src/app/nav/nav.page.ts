@@ -14,6 +14,8 @@ export class NavPage implements OnInit {
   constructor() { }
 
   logo:string = "assets/icon/NasaYuwe.png"
+  menuAbierto = false;
+
 
   ngOnInit() {
   }

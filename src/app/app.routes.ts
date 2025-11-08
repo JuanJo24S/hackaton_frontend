@@ -26,4 +26,8 @@ export const routes: Routes = [
     path: 'artisan',
     loadComponent: () => import('./Pages/artisan/artisan.page').then( m => m.ArtisanPage)
   },
+  {
+    path: 'auth',
+    loadComponent: () => import('./Pages/auth/auth.page').then( m => m.AuthPage)
+  },
 ];

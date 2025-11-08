@@ -1,0 +1,80 @@
+<div class="min-h-screen bg-background flex items-center justify-center p-4">
+  <div class="w-full max-w-md bg-card shadow-soft rounded-2xl p-8 space-y-6 border border-border">
+    <h2 class="text-2xl font-bold text-center text-foreground">
+      {{ modoRegistro ? 'Crear cuenta' : 'Iniciar sesión' }}
+    </h2>
+
+    <form (ngSubmit)="onSubmit()" class="space-y-4">
+      <!-- Campo: Nombre (solo registro) -->
+      <div *ngIf="modoRegistro">
+        <label class="block text-sm font-medium text-muted-foreground mb-1">Nombre completo</label>
+        <input
+          type="text"
+          [(ngModel)]="usuario.nombre"
+          name="nombre"
+          required
+          class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+        />
+      </div>
+
+      <!-- Campo: Correo -->
+      <div>
+        <label class="block text-sm font-medium text-muted-foreground mb-1">Correo electrónico</label>
+        <input
+          type="email"
+          [(ngModel)]="usuario.correo"
+          name="correo"
+          required
+          class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+        />
+      </div>
+
+      <!-- Campo: Contraseña -->
+      <div>
+        <label class="block text-sm font-medium text-muted-foreground mb-1">Contraseña</label>
+        <input
+          type="password"
+          [(ngModel)]="usuario.contrasena"
+          name="contrasena"
+          required
+          minlength="6"
+          class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+        />
+      </div>
+
+      <!-- Campo: Rol (solo registro) -->
+      <div *ngIf="modoRegistro">
+        <label class="block text-sm font-medium text-muted-foreground mb-1">Rol</label>
+        <select
+          [(ngModel)]="usuario.rol"
+          name="rol"
+          required
+          class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+        >
+          <option value="">Selecciona un rol</option>
+          <option value="ARTESANO">Artesano</option>
+          <option value="CLIENTE">Cliente</option>
+        </select>
+      </div>
+
+      <!-- Botón principal -->
+      <button
+        type="submit"
+        class="w-full py-2.5 rounded-xl font-semibold text-white bg-primary hover:bg-primary/90 transition"
+      >
+        {{ modoRegistro ? 'Registrarse' : 'Ingresar' }}
+      </button>
+    </form>
+
+    <!-- Divider -->
+    <div class="text-center text-sm text-muted-foreground">
+      {{ modoRegistro ? '¿Ya tienes una cuenta?' : '¿No tienes una cuenta?' }}
+      <button
+        (click)="toggleModo()"
+        class="text-primary font-medium hover:underline ml-1"
+      >
+        {{ modoRegistro ? 'Inicia sesión' : 'Crea una' }}
+      </button>
+    </div>
+  </div>
+</div>
