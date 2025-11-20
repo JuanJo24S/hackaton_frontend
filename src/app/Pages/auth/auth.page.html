@@ -53,8 +53,33 @@
         >
           <option value="">Selecciona un rol</option>
           <option value="ARTESANO">Artesano</option>
-          <option value="CLIENTE">Cliente</option>
+          <option value="COMPRADOR">Comprador</option>
         </select>
+      </div>
+
+      <!-- Campo: Ubicación (solo para ARTESANO) -->
+      <div *ngIf="modoRegistro && usuario.rol === 'ARTESANO'">
+        <label class="block text-sm font-medium text-muted-foreground mb-1">Ubicación</label>
+        <input
+          type="text"
+          [(ngModel)]="usuario.ubicacion"
+          name="ubicacion"
+          placeholder="Ej: Bogotá, Colombia"
+          class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+        />
+      </div>
+
+      <!-- Campo: Tags (solo para ARTESANO) -->
+      <div *ngIf="modoRegistro && usuario.rol === 'ARTESANO'">
+        <label class="block text-sm font-medium text-muted-foreground mb-1">Especialidades (separadas por comas)</label>
+        <input
+          type="text"
+          [(ngModel)]="usuario.tags"
+          name="tags"
+          placeholder="Ej: Cerámica, Textiles, Joyería artesanal"
+          class="w-full px-3 py-2 border border-border rounded-xl bg-background focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+        />
+        <p class="text-xs text-muted-foreground mt-1">Separa las especialidades con comas</p>
       </div>
 
       <!-- Botón principal -->

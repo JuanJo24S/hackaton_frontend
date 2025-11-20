@@ -1,179 +1,159 @@
-<main class="bg-background overflow-auto pt-8 scroll-smooth">
+<app-nav></app-nav>
+
+<main class="bg-background min-h-screen pt-8 pb-16 scroll-smooth">
 
   <!-- Contenedor principal -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
-    <!-- Buscador y filtros -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12 animate-fade-in-up">
+    <!-- 🔍 Buscador + Filtros -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-fade-in-up">
 
-      <!-- Filtros -->
-      <div class="lg:col-span-2 bg-card p-6 rounded-2xl shadow-soft border border-border">
-        <h2 class="heading-md mb-4 text-foreground">Explora lo mejor del Huila</h2>
+      <!-- Panel de búsqueda -->
+      <div class="lg:col-span-2 bg-card p-6 sm:p-8 rounded-2xl shadow-md border border-border">
+        <h2 class="text-2xl font-bold text-foreground mb-4">Explora lo mejor del Huila</h2>
 
-        <div class="flex flex-col gap-4">
+        <div class="space-y-4">
           <!-- Campo de búsqueda -->
-          <input
-            type="text"
-            placeholder="Buscar por nombre de producto o artesano"
-            class="p-3 rounded-lg bg-input border border-border focus-ring text-foreground"
-          />
-
-          <!-- Categorías y región -->
-          <div class="flex flex-col sm:flex-row gap-4">
-            <select class="p-3 rounded-lg bg-input border border-border text-foreground flex-1 focus-ring">
-              <option value="">Categoría: Todas</option>
-              <option>Tejidos</option>
-              <option>Cerámica</option>
-              <option>Guadua</option>
-              <option>Café</option>
-              <option>Joyería</option>
-            </select>
-
-            <select class="p-3 rounded-lg bg-input border border-border text-foreground flex-1 focus-ring">
-              <option value="">Región: Todo Huila</option>
-              <option>Pitalito</option>
-              <option>Neiva</option>
-              <option>San Agustín</option>
-              <option>Garzón</option>
-              <option>La Plata</option>
-            </select>
+          <div class="relative">
+            <input
+              type="text"
+              [(ngModel)]="busqueda"
+              (keyup.enter)="buscarProductos()"
+              placeholder="Buscar por nombre o artesano..."
+              class="w-full p-3 pl-10 rounded-lg bg-input border border-border focus:ring-2 focus:ring-primary/40 focus:border-primary text-foreground placeholder:text-muted-foreground transition"
+            />
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-muted-foreground"></i>
           </div>
+
+          <!-- Categorías -->
+          <select
+            [(ngModel)]="categoriaSeleccionada"
+            class="w-full p-3 rounded-lg bg-input border border-border text-foreground focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+          >
+            <option value="">Categoría: Todas</option>
+            <option value="Tejidos">Tejidos</option>
+            <option value="Cerámica">Cerámica</option>
+            <option value="Guadua">Guadua</option>
+            <option value="Café">Café</option>
+            <option value="Joyería">Joyería</option>
+            <option value="Ropa deportiva">Ropa deportiva</option>
+          </select>
 
           <!-- Botones -->
           <div class="flex flex-wrap gap-3">
-            <button class="btn btn-primary">Buscar</button>
-            <button class="btn btn-outline">Limpiar filtros</button>
+            <button (click)="buscarProductos()" class="btn btn-primary px-6 py-2.5 rounded-lg text-white font-semibold">
+              Buscar
+            </button>
+            <button (click)="limpiarFiltros()" class="btn btn-outline px-6 py-2.5 rounded-lg font-semibold">
+              Limpiar
+            </button>
           </div>
 
-          <!-- Etiquetas -->
-          <div class="flex flex-wrap gap-2 mt-2">
-            <span class="badge badge-primary">Tejidos</span>
-            <span class="badge badge-accent">Cerámica</span>
-            <span class="badge badge-primary">Guadua</span>
-            <span class="badge badge-primary">Café</span>
-            <span class="badge badge-accent">Sombreros</span>
-            <span class="badge badge-primary">Joyería</span>
-          </div>
-
+          <!-- Resultado -->
           <p class="text-sm text-muted-foreground mt-2">
-            Consejo: usa la búsqueda para encontrar por nombre de artesano o producto.
+            Mostrando <span class="font-medium text-foreground">{{ productos.length }}</span> de <span class="font-medium text-foreground">{{ total }}</span> productos.
           </p>
         </div>
       </div>
 
       <!-- Banner lateral -->
-      <div class="bg-secondary p-6 rounded-2xl shadow-soft flex flex-col justify-between animate-scale-in">
-        <div>
-          <img
-            src="assets/landing-resources/resource3.png"
-            alt="Artesanías del Huila"
-            class="rounded-xl mb-4 w-full h-44 object-cover"
-          />
-          <h3 class="heading-md mb-2 text-secondary-foreground">Hecho a mano con alma huilense</h3>
-          <p class="text-muted-foreground mb-4">
-            Compra directo a artesanos locales y conoce la historia detrás de cada pieza.
-          </p>
-        </div>
-        <a href="#" class="btn btn-primary w-full">Ver colecciones</a>
+      <div class="bg-gradient-to-br from-secondary to-white p-6 rounded-2xl shadow-md flex flex-col justify-between animate-fade-in-up">
+        <img
+          src="assets/landing-resources/resource3.png"
+          alt="Artesanías del Huila"
+          class="rounded-xl mb-4 w-full h-44 object-cover shadow-sm"
+        />
+        <h3 class="text-xl font-bold text-secondary-foreground mb-2">Hecho a mano con alma huilense</h3>
+        <p class="text-muted-foreground mb-6 leading-relaxed">
+          Compra directo a artesanos locales y descubre la historia detrás de cada pieza única.
+        </p>
+        <a href="#" class="btn btn-primary w-full py-3 text-center font-semibold rounded-lg hover:scale-[1.02] transition">
+          Ver colecciones
+        </a>
       </div>
     </div>
 
-    <!-- Productos destacados -->
+    <!-- 🛍️ Productos -->
     <section class="animate-fade-in-up">
-      <h2 class="heading-lg mb-8 section-title">Destacados de la semana</h2>
+      <h2 class="text-3xl font-bold mb-8 section-title text-foreground text-center md:text-left">
+        {{ categoriaSeleccionada || busqueda ? 'Resultados de búsqueda' : 'Productos destacados' }}
+      </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Loading -->
+      <div *ngIf="cargando" class="flex flex-col items-center justify-center py-12">
+        <div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p class="text-muted-foreground">Cargando productos...</p>
+      </div>
 
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/product1.png" alt="Canasto de iraca">
-          <h3>Canasto de iraca</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Luz M, Pitalito</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$85.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
+      <!-- Sin resultados -->
+      <div *ngIf="!cargando && productos.length === 0" class="text-center py-12">
+        <p class="text-lg text-muted-foreground mb-4">No se encontraron productos.</p>
+        <button (click)="limpiarFiltros()" class="btn btn-primary px-6 py-2.5 rounded-lg font-semibold">
+          Ver todos los productos
+        </button>
+      </div>
+
+      <!-- Grid de productos -->
+      <div *ngIf="!cargando && productos.length > 0"
+           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div
+          *ngFor="let producto of productos"
+          class="bg-card rounded-2xl shadow-sm hover:shadow-md border border-border overflow-hidden cursor-pointer transition hover:-translate-y-1"
+          (click)="verDetalle(producto.id_producto)"
+        >
+          <img
+            [src]="producto.imagenes?.length ? producto.imagenes[0] : 'assets/landing-resources/product1.png'"
+            [alt]="producto.nombre"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-semibold text-foreground mb-1">{{ producto.nombre }}</h3>
+            <p class="text-sm text-muted-foreground line-clamp-2 mb-3">{{ producto.descripcion }}</p>
+            <div class="flex items-center justify-between">
+              <span class="text-primary font-bold">${{ producto.precio }}</span>
+              <button
+                (click)="verDetalle(producto.id_producto); $event.stopPropagation()"
+                class="text-sm text-primary hover:underline font-medium"
+              >
+                Ver detalle
+              </button>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/product2.png" alt="Taza de cerámica">
-          <h3>Mug de Cerámica</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Taller La Jagua, Neiva</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$48.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
+      <!-- Paginación -->
+      <div *ngIf="!cargando && productos.length > 0 && totalPaginas > 1"
+           class="flex flex-wrap justify-center items-center gap-2 mt-12">
+        <button
+          (click)="cambiarPagina(paginaActual - 1)"
+          [disabled]="paginaActual === 1"
+          class="btn btn-outline btn-sm"
+        >
+          Anterior
+        </button>
+
+        <div class="flex flex-wrap gap-1">
+          <button
+            *ngFor="let pagina of paginasArray"
+            (click)="cambiarPagina(pagina)"
+            class="btn btn-sm min-w-[40px] rounded-lg"
+            [ngClass]="{
+              'bg-primary text-white': pagina === paginaActual,
+              'btn-outline': pagina !== paginaActual
+            }"
+          >
+            {{ pagina }}
+          </button>
         </div>
 
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/product3.png" alt="Sombrero Tejido">
-          <h3>Sombrero Tejido</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Don Elías, San Agustín</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$120.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource1.png" alt="Collar de Cuentas">
-          <h3>Collar de Cuentas</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Ana P., Garzón</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$65.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource2.png" alt="Banquito de Guadua">
-          <h3>Banquito de Guadua</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Colectivo Río, Campoalegre</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$98.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/product4.png" alt="Café de Altura">
-          <h3>Café de Altura</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Finca El Encanto, Acevedo</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$34.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource1.png" alt="Camino de Mesa">
-          <h3>Camino de Mesa</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Tejedoras del Magdalena</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$72.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource2.png" alt="Cucharas Talladas">
-          <h3>Cucharas Talladas</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Ebanista R., La Plata</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$28.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
-        <div class="card card-product hover-lift">
-          <img src="assets/landing-resources/resource3.png" alt="Jarrón Terracota">
-          <h3>Jarrón Terracota</h3>
-          <p class="text-sm text-muted-foreground mb-2">por Casa Cerámica, Tarqui</p>
-          <div class="flex justify-between items-center">
-            <p class="price">$110.000</p>
-            <a href="#" class="btn btn-secondary btn-sm">Ver historia</a>
-          </div>
-        </div>
-
+        <button
+          (click)="cambiarPagina(paginaActual + 1)"
+          [disabled]="paginaActual === totalPaginas"
+          class="btn btn-outline btn-sm"
+        >
+          Siguiente
+        </button>
       </div>
     </section>
   </section>

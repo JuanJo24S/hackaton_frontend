@@ -1,17 +1,6 @@
-<ng-container *ngIf="estaAutenticado; else mostrarLogin">
-  <!-- Layout principal -->
-  <ion-header>
-    <ion-toolbar>
-      <app-nav></app-nav>
-    </ion-toolbar>
-  </ion-header>
+<div class="app-container">
+  <router-outlet></router-outlet>
+</div>
 
-  <ion-content>
-    <ion-router-outlet></ion-router-outlet>
-  </ion-content>
-</ng-container>
-
-<!-- Vista de login -->
-<ng-template #mostrarLogin>
-  <app-auth></app-auth>
-</ng-template>
+<!-- Toast global -->
+<app-toast></app-toast>

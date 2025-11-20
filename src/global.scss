@@ -99,9 +99,33 @@
   --sidebar-primary-foreground: #ffffff;
 }
 
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
 body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
   background-color: var(--background);
   color: var(--foreground);
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+ion-router-outlet {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+ion-content {
+  --overflow: auto !important;
 }
 
 // --------------------------------------------
